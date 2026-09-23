@@ -1,19 +1,23 @@
-// Toggle menu navigasi pada layar HP
-const navToggle = document.getElementById('navToggle');
-const navLinks = document.getElementById('navLinks');
+// ==========================================
+// SCRIPT NAVIGASI SEDERHANA (YUKHEMAT)
+// ==========================================
 
-if (navToggle) {
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
+// 1. Ambil elemen tombol HP dan menu dari HTML
+const tombolHp = document.getElementById('tombolHp');
+const menuNavigasi = document.getElementById('menuNavigasi');
+
+// 2. Fungsi untuk buka/tutup menu saat tombol HP diklik
+if (tombolHp) {
+  tombolHp.addEventListener('click', function() {
+    menuNavigasi.classList.toggle('buka');
   });
 }
 
-// Tutup menu otomatis setelah salah satu tautan diklik
-const links = document.querySelectorAll('.nav-links a');
-links.forEach(link => {
-  link.addEventListener('click', () => {
-    if (navLinks.classList.contains('active')) {
-      navLinks.classList.remove('active');
-    }
+// 3. Fungsi untuk menutup menu otomatis setelah link menu diklik
+const semuaLink = document.querySelectorAll('.menu a');
+
+semuaLink.forEach(function(link) {
+  link.addEventListener('click', function() {
+    menuNavigasi.classList.remove('buka');
   });
 });
